@@ -1,19 +1,24 @@
 # FaceApart
 
-**FaceApart** is a automated Python tool designed to simplify hunting for apartments on Facebook in Israel. The bot monitors groups or marketplace postings to help users quickly find relevant listings without manual scrolling.
+**FaceApart** is an automated apartment-hunting bot designed specifically for the Israeli real estate market on Facebook. By leveraging Playwright for dynamic browser automation and BeautifulSoup for parsing, it scans listings and displays them on a local web dashboard.
 
 ## Features
 
-* **Automated Scanning**: Tracks real-time rental listings across specified Facebook sources.
-* **Smart Filtering**: Filters results based on custom keywords tailored for the Israeli housing market.
-* **Lightweight Interface**: Includes a local web UI view alongside terminal logging capabilities.
+* **Browser Automation**: Uses Playwright to navigate Facebook listings seamlessly.
+* **Hebrew Text Normalization**: Cleans and processes right-to-left text data using Python's `unicodedata`.
+* **Multi-threaded Architecture**: Runs the browser scraping engine and the Flask server concurrently.
+* **Local Web Dashboard**: Displays parsed apartment results instantly through a lightweight web interface.
 
 ## Repository Structure
 
-* `app.py`: The primary Python application script containing the bot logic.
-* `terminal_working.png`: Demonstration screenshot of the terminal interface execution.
-* `webpage.png`: Visual preview of the application's web interface dashboard.
-* `LICENSE`: MIT License guidelines for open-source distribution.
+* `app.py`: Main application code handling automation, parsing, multi-threading, and the Flask server.
+* `terminal_working.png`: Visual guide showing the console logger running.
+* `webpage.png`: Visual interface preview of the local application dashboard.
+* `LICENSE`: MIT License guidelines.
+
+## Prerequisites
+
+Before setting up, ensure you have **Python 3.8+** installed on your machine.
 
 ## Installation
 
@@ -23,19 +28,24 @@
    cd FaceApart
    ```
 
-2. **Install dependencies**:
-   Ensure you have Python 3 installed, then set up the required packages:
+2. **Install required Python packages**:
    ```bash
-   pip install -r requirements.txt
+   pip install flask beautifulsoup4 playwright
    ```
-   *(Note: Add your specific dependencies like Selenium, Beautiful Soup, Flask, or Playwright to a requirements.txt file).*
+
+3. **Install Playwright browser binaries**:
+   ```bash
+   playwright install chromium
+   ```
 
 ## Usage
 
-Launch the main script to run the bot and initialize its tracking engine:
+Run the main application script to initialize both the scraper and the web interface:
 ```bash
 python app.py
 ```
+
+Once running, open your web browser and navigate to the address provided by Flask (typically `http://127.0.0.1:5000`) to view real-time apartment listings.
 
 ## License
 
